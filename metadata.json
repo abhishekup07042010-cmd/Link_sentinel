@@ -1,0 +1,6 @@
+{
+  "name": "LinkSentinel - Phishing Link & Threat Intelligence Analyzer",
+  "description": "Ultra-modern progressive web app for phishing link detection, real-time threat intelligence analysis, domain reputation scoring, and URL security inspection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

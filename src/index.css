@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #121212;
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --accent-cyan: #00FFFF;
+    --accent-magenta: #FF00FF;
+    --accent-emerald: #10B981;
+    --accent-amber: #F59E0B;
+    --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  .dark {
+    --bg-main: #121212;
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --accent-cyan: #00FFFF;
+    --accent-magenta: #FF00FF;
+    --accent-emerald: #10B981;
+    --accent-amber: #F59E0B;
+    --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  body {
+    background-color: #121212;
+    color: #F8FAFC;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-panel-hover {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--glass-shadow);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(0, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Glow effects - subtle, refined glow instead of aggressive spread */
+.glow-cyan {
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
+}
+
+.glow-magenta {
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.18);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+}
+
+.glow-amber {
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.15);
+}
+
+/* Ripple button animation helper */
+.ripple-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.ripple-button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(50, 50);
+  }
+}
+
+/* Radar scan animation */
+@keyframes radar-sweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar {
+  animation: radar-sweep 2.4s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
